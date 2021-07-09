@@ -1,0 +1,25 @@
+{
+  "name": "react18-koa2-ssr-groupChat",
+  "version": "1.0.0",
+  "description": "基于react18 koa2实现ssr群聊应用",
+  "main": "index.js",
+  "author": "arley",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "koa": "^2.13.1",
+    "react": "^18.0.0-alpha-cb8afda18-20210708",
+    "react-dom": "^18.0.0-alpha-cb8afda18-20210708"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.4",
+    "@types/node": "^16.3.0",
+    "@types/react": "^17.0.14",
+    "@types/react-dom": "^17.0.9",
+    "ts-node": "^10.0.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2"
+  }
+}
