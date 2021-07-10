@@ -1,0 +1,10 @@
+{
+  "files.autoSave": "afterDelay",
+  "standard.enable": false,
+  "eslint.run": "onSave",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.alwaysShowStatus": true,
+  "editor.tabSize": 2
+}
