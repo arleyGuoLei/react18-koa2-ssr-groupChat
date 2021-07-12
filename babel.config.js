@@ -18,6 +18,7 @@ module.exports = {
           proposals: true
         }
       }
-    ]
+    ],
+    require.resolve('react-refresh/babel')
   ]
 }

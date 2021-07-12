@@ -3,6 +3,7 @@ import * as path from 'path'
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const NodemonPlugin = require('nodemon-webpack-plugin')
+const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
 const resolve = (filepath: string) => (path.resolve(__dirname, filepath))
@@ -24,6 +25,8 @@ const config: webpack.Configuration = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new ReactRefreshPlugin(),
     new NodemonPlugin({
       script: resolve('./../dist/server.js'),
       watch: EmitPach

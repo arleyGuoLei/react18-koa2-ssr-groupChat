@@ -2,6 +2,6 @@
 
 ## 只考虑服务端渲染，不考虑客户端直接渲染
 
-服务端打包
+## 参考链接
 
-ts、tsx -> js
+- [一分钟用上热更新 React Fast Refresh（react-refresh）](https://segmentfault.com/a/1190000023534941)
