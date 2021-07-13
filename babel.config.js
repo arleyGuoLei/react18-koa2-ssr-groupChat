@@ -1,3 +1,5 @@
+const isDev = process.env.NODE_ENV === 'development'
+
 module.exports = {
   presets: [
     [
@@ -18,7 +20,7 @@ module.exports = {
           proposals: true
         }
       }
-    ],
-    require.resolve('react-refresh/babel')
-  ]
+    ]
+    // isDev && require.resolve('react-refresh/babel')
+  ].filter(Boolean)
 }

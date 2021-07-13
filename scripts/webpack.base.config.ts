@@ -6,31 +6,37 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const isDev = process.env.NODE_ENV === 'development'
 const resolve = (filepath: string) => (path.resolve(__dirname, filepath))
 
-const config: webpack.Configuration = {
-  mode: isDev ? 'development' : 'production',
-  cache: {
-    type: 'filesystem'
-  },
-  plugins: [
-    new CleanWebpackPlugin()
-  ].filter(Boolean),
-  module: {
-    rules: [
-      {
-        test: /\.(tsx?|js)$/,
-        loader: 'babel-loader',
-        options: { cacheDirectory: true },
-        exclude: /node_modules/
-      }
-    ]
-  },
-  resolve: {
-    alias: {
-      '@server': resolve('./../server'),
-      '@client': resolve('./../client')
-    },
-    extensions: ['.tsx', '.ts', '.js']
-  }
-}
+export default (target: 'server' | 'client') => {
+  const isClient = target === 'client'
 
-export default config
+  const config: webpack.Configuration = {
+    mode: isDev ? 'development' : 'production',
+    plugins: [
+      new CleanWebpackPlugin()
+    ].filter(Boolean),
+    module: {
+      rules: [
+        {
+          test: /\.[jt]sx?$/,
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true,
+            plugins: [
+              isClient && isDev && require.resolve('react-refresh/babel')
+            ].filter(Boolean)
+          },
+          exclude: /node_modules/
+        }
+      ]
+    },
+    resolve: {
+      alias: {
+        '@server': resolve('./../server'),
+        '@client': resolve('./../client')
+      },
+      extensions: ['.tsx', '.ts', '.js']
+    }
+  }
+
+  return config
+}

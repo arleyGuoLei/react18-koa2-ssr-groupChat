@@ -1,6 +1,9 @@
 
 import React from 'react'
-import { hydrateRoot } from 'react-dom'
+import { hydrateRoot, hydrate } from 'react-dom'
 import App from '@client/app'
 
-hydrateRoot(document, <App />)
+// hydrateRoot(document, <App />)
+
+const container = document
+hydrate(<App />, container)

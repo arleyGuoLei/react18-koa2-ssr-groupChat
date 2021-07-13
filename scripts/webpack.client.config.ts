@@ -28,6 +28,7 @@ const config: webpack.Configuration = {
 
     isDev && new webpack.HotModuleReplacementPlugin(),
     isDev && new ReactRefreshPlugin(),
+
     new WebpackManifestPlugin({
       writeToFileEmit: true,
       fileName: `manifest.json`
@@ -58,4 +59,4 @@ const config: webpack.Configuration = {
   }
 }
 
-export default merge(baseConfig, config)
+export default merge(baseConfig('client'), config)

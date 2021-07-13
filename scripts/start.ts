@@ -12,7 +12,7 @@ webpack(serverConfig).watch({}, (err, stats) => {
 
 const clientCompiler: any = webpack(clientConfig)
 const clientDevServer = new WebpackDevServer(
-  clientCompiler,
+  clientCompiler, // WebpackDevServer中webpack type文件是4版本的，所以类型对不上
   {
     port: 1997,
     hot: true,
